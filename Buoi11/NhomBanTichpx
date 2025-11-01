@@ -1,0 +1,25 @@
+F = [0] * 100005
+G = [1] * 100005
+res = 1
+def findroot(x):
+    if F[x] == 0: return x
+    F[x] = findroot(F[x])
+    return F[x]
+
+if __name__ == '__main__':
+    n, m = map(int, input().split())
+    k = n
+    for i in range(0, m):
+        u, v = map(int, input().split())
+        x = findroot(u)
+        y = findroot(v)
+        if x!= y:
+            F[x] = y
+            k-= 1
+            G[y] += G[x]
+            z = u
+            while F[z] != 0: z, F[z] = F[z], y
+            z = v
+            while F[z] != 0: z, F[z] = F[z], y
+            res = max(res, G[y])
+    print(k, res, sep="\n")
