@@ -1,7 +1,7 @@
 import queue
 A=[[] for i in range(10**5+2)]
 d=[0]*(10**5+1)
-def Tim(k, Q):  # tra ve so phan tu cua nhom chua k
+def Tim(k, Q):  
     global d,A
     Q.put(k)
     dem = 1

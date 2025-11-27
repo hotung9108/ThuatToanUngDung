@@ -1,6 +1,4 @@
 import queue
-
-
 class Friend:
     def nhap(self):
         self.n, self.m = map(int, input().split()) 
@@ -12,7 +10,7 @@ class Friend:
         self.d = [0]*(self.n + 5)
         self.res = 0
         self.g = 0
-    def Tim(self, k, Q): #tra ve so phan tu cua nhom chua k
+    def Tim(self, k, Q):
         Q.put(k)
         dem = 1
         self.d[k] = 1
@@ -25,10 +23,6 @@ class Friend:
                     Q.put(v)
         return dem
     def sol(self):
-        # self.nhap()
-        # for i in range(1, self.n+1):
-        #     print(i, end = " : ")
-        #     print(*self.A[i])
         Q = queue.LifoQueue()
         for  i in range(1, self.n + 1):
             if self.d[i] == 0:
